@@ -1,21 +1,14 @@
-function calculateBmi() {
-   // var edad  = parseInt(document.getElementById('edad').value);
-    var alturaEnCentimetros = parseInt(document.getElementById('altura').value);
-    var alturaEnMetros = alturaEnCentimetros / 100;
-    var pesoEnKilos = parseInt(document.getElementById('peso').value);
-  
-    var bmi = Math.round(pesoEnKilos / (alturaEnMetros * alturaEnMetros));
-    var resultado;
-    
-    if (bmi < 18.5) {
-      resultado = 'estás muy delgado';
-    } else if (bmi < 25) {
-      resultado = 'estás saludable';
-    } else {
-      resultado = 'tienes sobrepeso';
+var resultado;
+var calculateBmi = function (altura, peso) {
+    var bmi = peso / (altura * altura);
+    if (bmi >= 18.5 && bmi < 25) {
+        resultado = 'Normal (healthy weight)';
     }
-    
-  }
-  console.log(calculateBmi(alturaEnCentimetros,pesoEnKilos));
-  console.log(resultado);
-  //window.onload=init();
+    else {
+        resultado = 'fuera de serie';
+    }
+    return "El indice de masa corporal es: " + bmi + ".\nTu peso es " + resultado;
+};
+console.log(resultado);
+console.log(calculateBmi(1.83, 72));
+// https://softwarecrafters.io/typescript/typescript-tutorial-javascript-introduccion
